@@ -3,18 +3,17 @@ root = true
 [*]
 end_of_line = crlf
 insert_final_newline = true
-<<<<<<< HEAD
+
 indent_size = 2
 trim_trailing_whitespace = true
-=======
+
 indent_style = space
 indent_size = 2
 trim_trailing_whitespace = true
 
 [{package.json}]
-indent_style = space
+indent_style = spacegit 
 indent_size = 2
 
 [Makefile]
 indent_style = tab
->>>>>>> 2f73526d989be92405e3814db1b53a41c42f3be7
