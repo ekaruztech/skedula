@@ -9,6 +9,8 @@ import Text from "../element/Text";
 import FormContainer from "../containers/form";
 import IconContainer from "../containers/icon";
 import InputContainer from "../containers/input";
+import { User as IconUser } from "styled-icons/boxicons-solid/User";
+import { Key } from "styled-icons/boxicons-solid/Key";
 
 const Icon = styled.i.attrs(prop => ({ className: prop.className }))`
   color: #e0e2e5;
@@ -113,7 +115,7 @@ function Login() {
       <Form>
         <InputContainer>
           <IconContainer>
-            <Icon className="fa fa-user" />
+            <IconUser color={"#B1B2B5"} size={"25"} className="IconUser" />
           </IconContainer>
           <Input
             type={"text"}
@@ -125,7 +127,7 @@ function Login() {
 
         <InputContainer gridArea={"p"}>
           <IconContainer>
-            <Icon className="fa fa-key" />
+            <Key color={"#B1B2B5"} size={"25"} />
           </IconContainer>
           <Input
             type={"password"}
