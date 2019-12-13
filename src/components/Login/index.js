@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { ReactComponent as Logo } from "../svg/Skedula-logo.svg";
 import { ReactComponent as Delimeter } from "../svg/delimeter.svg";
+
 const FormContainer = styled.div`
   height: 100%;
   width: 100%;
