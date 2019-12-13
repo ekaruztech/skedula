@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Switch>
         <div className="App">
-          <Auth />
+          <Route exact path={"/login"} component={Auth} />
         </div>
       </Switch>
 

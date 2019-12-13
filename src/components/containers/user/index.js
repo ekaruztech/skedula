@@ -2,17 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: 100vh;
   width: 100vw;
-  background: #000,
-  display: flex;
-  align-items: center;
-  flex-flow: row;
-
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `;
 
 function User(props) {
-  return <div className="User">{props.children}</div>;
+  return <Container>{props.children}</Container>;
 }
 
 export default User;
