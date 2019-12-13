@@ -1,13 +1,17 @@
-import React from 'react';
-import Login from './components/login';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Auth from "./components/Auth";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-     <h1>Welcome to Skedula App</h1>
-     <Login/>
-    </div>
+    <Router>
+      <Switch>
+        <div className="App">
+          <Auth />
+        </div>
+      </Switch>
+    </Router>
   );
 }
 
