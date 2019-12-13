@@ -3,138 +3,16 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { ReactComponent as Logo } from "../svg/Skedula-logo.svg";
 import { ReactComponent as Delimeter } from "../svg/delimeter.svg";
-
-const FormContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  display: grid;
-  background-color: #ffffff;
-  grid-template-rows: repeat(3, 1fr);
-`;
-
-// prettier-ignore
-const InputContainer = styled.div`
-  height: ${prop => prop.height}${prop => prop.sizeUnit};
-  background: none;
-  border: ${prop => prop.borderWidth}${prop => prop.sizeUnit} solid
-    ${prop => prop.borderColor};
-  border-radius: ${prop => prop.radius}${prop => prop.sizeUnit};
-  display: grid;
-  align-items: center;
-  grid-area: ${prop => prop.gridArea};
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr;
-  grid-template-areas: "s i i i i i i i i i i i";
-  :focus-within,
-  :focus-within > span {
-    border-color: ${prop => prop.primaryColor};
-  }
-  :hover,
-  :hover > span {
-    border-color: ${prop => prop.primaryColor};
-    transition: ${prop => prop.transition};
-  }
-  margin: 10px 0 10px 0;
-`;
-
-InputContainer.defaultProps = {
-  height: 55,
-  borderColor: "#E0E2E5",
-  width: 400,
-  radius: 3,
-  sizeUnit: "px",
-  sizeUnit2: "px",
-  primaryColor: "#4786ff",
-  borderWidth: 1.3,
-  transition: "300ms ease-out",
-  gridArea: "e"
-};
-
-InputContainer.PropTypes = {
-  height: PropTypes.number.isRequired,
-  width: PropTypes.number.isRequired,
-  radius: PropTypes.number.isRequired,
-  borderColor: PropTypes.string,
-  sizeUnit: PropTypes.string,
-  sizeUnit2: PropTypes.string,
-  primaryColor: PropTypes.string,
-  borderWidth: PropTypes.number
-};
-const IconContainer = styled.span`
-  height: 100%;
-  display: grid;
-
-  border-right: 1px solid #e0e2e5;
-  background: none;
-  grid-area: s;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-`;
+import Button from "../element/Button";
+import Input from "../element/Input";
+import Text from "../element/Text";
+import FormContainer from "../containers/form";
+import IconContainer from "../containers/icon";
+import InputContainer from "../containers/input";
 
 const Icon = styled.i.attrs(prop => ({ className: prop.className }))`
   color: #e0e2e5;
 `;
-const Input = styled.input.attrs(prop => ({
-  type: prop.type,
-  placeholder: prop.placeholder
-}))`
-  height: 100%;
-  display: flex;
-  padding: 5px;
-  grid-area: i;
-  border: none;
-  font-size: 15px;
-  color: #707070;
-  outline: none;
-  ::placeholder {
-    color: #999;
-  }
-`;
-
-const PrimaryButton = styled.button.attrs(prop => ({ type: prop.type }))`
-  padding: ${prop => prop.padding};
-
-  background: none;
-  border-radius: ${prop => prop.radius};
-  cursor: pointer;
-  font-size: 15px;
-  font-family: ${prop => prop.fontFamily};
-  background-color: ${prop => prop.background};
-  color: ${prop => prop.color};
-  transition: background-color ${prop => prop.transition};
-  border: none;
-  :hover {
-    background-color: ${prop => prop.hoverBackground};
-    color: ${prop => prop.hoverColor};
-    transition: color ${prop => prop.transition},
-      background-color ${prop => prop.transition};
-  }
-  :focus {
-    outline-color: ${prop => prop.background};
-  }
-`;
-
-PrimaryButton.defaultProps = {
-  padding: "8px 28px",
-  background: "#5c8df6",
-  color: "#FFFFFF",
-  hoverBackground: "#454B57",
-  hoverColor: "#ffffff",
-  transition: "300ms ease-out",
-  fontFamily: "sans-serif",
-  radius: "2px"
-};
-
-PrimaryButton.PropTypes = {
-  size: PropTypes.number.isRequired,
-  background: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
-  hoverBackground: PropTypes.string,
-  hoverColor: PropTypes.string,
-  transition: PropTypes.string,
-  fontFamily: PropTypes.string
-};
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -211,22 +89,15 @@ const LoginHeader = styled.div`
     ". . . . l l l l . . . ."
     ". . h h h h h h . . . .";
 `;
-const Text = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  grid-area: h;
-  font-size: 20px;
-  color: #9d9d9d;
-`;
+
 const LoginFooter = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
     ". . . l l l l l l . . ."
-    ". . h h h h h h . . . .";
+    ". . h h h h h h h h . .";
 `;
 function Login() {
   const [input, setInput] = useState("");
@@ -235,7 +106,9 @@ function Login() {
     <FormContainer>
       <LoginHeader>
         <Logo className="Logo" />
-        <Text>A weight task management and to do application.</Text>
+        <Text gridArea={"h"} fontSize={"20px"}>
+          A weight task management and to-do application.
+        </Text>
       </LoginHeader>
       <Form>
         <InputContainer>
@@ -265,11 +138,14 @@ function Login() {
           <Link>
             <a href="#">Forgot password ?</a>
           </Link>
-          <PrimaryButton type={"submit"}>Login</PrimaryButton>
+          <Button type={"submit"}>Login</Button>
         </ButtonContainer>
       </Form>
       <LoginFooter>
         <Delimeter className="Delimeter" />
+        <Button height={"50px"} gridArea={"h"} fontSize={"20px"} padding={"0"}>
+          CREATE YOUR SKEDULA ACCOUNT
+        </Button>
       </LoginFooter>
     </FormContainer>
   );
