@@ -1,6 +1,6 @@
 import React from "react";
 import User from "../containers/user";
-import Login from "../login";
+import Login from "../login/index.js";
 import Hero from "../containers/hero";
 import { BrowserRouter as Router } from "react-router-dom";
 
