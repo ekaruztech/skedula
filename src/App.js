@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Auth from "./components/Auth";
+
 import "./App.css";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
           <Auth />
         </div>
       </Switch>
+
     </Router>
   );
 }
