@@ -9,16 +9,21 @@ const InputField = props => {
     if (props.onChange) props.onChange(inputValue);
   }
   return (
-    <>
+    <div className="input-group mb-3">
       <input
-        type={inputType}
-        value={inputValue}
-        name="input-form"
-        onChange={handleChange}
-        className="form-control "
+        className="form-control"
+        type={props.type}
         placeholder={props.placeholder}
+        name={props.name}
+        value={props.value}
+        onChange={props.handleChange}
       />
-    </>
+    </div>
   );
 };
+
+InputField.defaultProps = {
+  type: "text"
+};
+
 export default InputField;
