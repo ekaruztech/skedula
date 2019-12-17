@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import Logo from "../assets/images/Skedula.svg";
@@ -45,8 +44,6 @@ const Login = props => {
         <Col xs="6">.col-6</Col>
       </Row>
     </Container>
-
-
   );
 };
 

@@ -21,7 +21,6 @@ function App() {
         <Route exact path="/task" component={TaskPage} />
         <Route exact path="/register" component={Register} />
       </div>
-
     </Router>
   );
 }
