@@ -26,7 +26,7 @@ const SingleTodoPage = () => {
               in progress
             </small>
           </h3>
-          <h6 className=" text-secondary">
+          <h6 className=" text-secondary mt-4">
             A quick brown fox jumbs over the lazy dog
           </h6>
           <div>
@@ -60,7 +60,7 @@ const SingleTodoPage = () => {
               </Modal>
             </>
           </div>
-          <div className="mt-5 shadow-lg ">
+          <div className="mt-5 shadow ">
             <FormGroup check>
               <Label className="mt-2 mb-2 ml-2" check>
                 <Input type="checkbox" /> Organize a private jet
@@ -69,7 +69,7 @@ const SingleTodoPage = () => {
               <i class="fas fa-times text-secondary  float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
-          <div className="mt-2 shadow-lg ">
+          <div className="mt-2 shadow ">
             <FormGroup check>
               <Label className="mt-2 mb-2 ml-2" check>
                 <Input type="checkbox" /> Get a tour guide
@@ -78,7 +78,7 @@ const SingleTodoPage = () => {
               <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
-          <div className="mt-2 shadow-lg ">
+          <div className="mt-2 shadow ">
             <FormGroup check>
               <Label className="mt-2 mb-2 ml-2" check>
                 <Input type="checkbox" /> Book hotels
@@ -87,7 +87,7 @@ const SingleTodoPage = () => {
               <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
-          <div className="mt-2 shadow-lg ">
+          <div className="mt-2 shadow ">
             <FormGroup check>
               <Label className="mt-2 mb-2 ml-2" check>
                 <Input type="checkbox" /> Get the money
@@ -96,7 +96,7 @@ const SingleTodoPage = () => {
               <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
-          <div className="mt-2 shadow-lg ">
+          <div className="mt-2 shadow ">
             <FormGroup check>
               <Label className="mt-2 mb-2 ml-2" check>
                 <Input type="checkbox" /> Consult flight agency
@@ -105,7 +105,7 @@ const SingleTodoPage = () => {
               <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
-          <div className="mt-2 shadow-lg ">
+          <div className="mt-2 shadow ">
             <FormGroup check>
               <Label className="mt-2 mb-2 ml-2" check>
                 <Input type="checkbox" /> miscellaneous task
