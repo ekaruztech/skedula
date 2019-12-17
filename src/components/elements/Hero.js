@@ -10,7 +10,7 @@ const Container = styled.div`
     height: 665px;
     width: 605px;
     position: absolute;
-    top: 25px;
+    top: -10px;
     right: -2px;
   }
 `;
