@@ -5,7 +5,7 @@ import "./MainDashboard.scss";
 import Cry from "../assets/images/cry-todo-1.svg";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import InputField from "../elements/InputField";
+import ModalInput from "../elements/ModalInput";
 import Form from "react-bootstrap/Form";
 import { FormGroup, Input } from "reactstrap";
 
@@ -40,7 +40,7 @@ function Dashboard() {
                   Create new <strong className="modal-title1">Todo</strong>
                 </Modal.Title>
                 <Modal.Body>
-                  <InputField placeholder="Todo title" />
+                  <ModalInput placeholder="Todo title" />
                   <Input
                     type="textarea"
                     name="text"
