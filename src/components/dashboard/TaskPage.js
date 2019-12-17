@@ -16,10 +16,10 @@ const SingleTodoPage = () => {
   return (
     <Container className="themed-container" fluid={true}>
       <Row>
-        <Col lg="4" sm="12">
+        <Col lg="3" sm="12">
           <h1>SideBar</h1>
         </Col>
-        <Col lg="6" sm="12" className="mt-3 mr-5">
+        <Col lg="8" sm="12" className="mt-3 mr-5">
           <h3 className="mt-3 text-secondary">
             A trip to France.{" "}
             <small className="bg-primary ml-5 text-white pending p-1 pr-3">
