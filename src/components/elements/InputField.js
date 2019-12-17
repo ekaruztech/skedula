@@ -11,12 +11,12 @@ const InputField = props => {
   return (
     <div className="input-group mb-3">
       <input
-        className="form-control"
+        className="form-control p-1"
         type={props.type}
         placeholder={props.placeholder}
         name={props.name}
         value={props.value}
-        onChange={props.handleChange}
+        onChange={handleChange}
       />
     </div>
   );

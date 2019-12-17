@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "./MainDashboard.scss";
-import Cry from "../assets/images/cry-todo-1.png";
+//import Cry from "../assets/images/cry-todo-1.png";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import InputField from "../elements/InputField";

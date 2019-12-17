@@ -1,38 +1,35 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.App {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
+body {
+  font-family: montserrat;
   overflow: hidden;
+  padding: 0;
+  margin:0;
 }
 
-.User {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.iconStyle {
+  height: 38px;
+  color:#e0e2e5;
+  background-color: #fff;
+  border-bottom:none;
+  border-left:none;
+  border-top:none;
+  border-right: 1px solid rgb(175, 175, 175);
 }
 
-.Logo {
-  grid-area: l;
-  height: 120px;
-  width: 260px;
+.input-group-prepend {
+  border: 1px solid rgb(175, 175, 175);
+  height: 40px;
+}
+
+.form-control {
+  border: none
+}
+
+.pwd:hover {
+  text-decoration: underline;
 }
 
 .Delimeter {
-  grid-area: l;
+  margin: 20px 0 0 60px;
   width: 400px;
 }
 
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
