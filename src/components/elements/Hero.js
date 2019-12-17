@@ -5,7 +5,7 @@ import { ReactComponent as Hero } from "../assets/images/HeroImage.svg";
 const Container = styled.div`
   background-color: #fff;
   padding: 0;
-  /* overflow: hidden; */
+
   svg {
     height: 665px;
     width: 605px;
