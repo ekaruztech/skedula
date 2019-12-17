@@ -6,7 +6,7 @@ const Button = props => {
   const [style] = useState(props.style);
   return (
     <button
-      className={`btn-${variant} border-0 text-center ml-5 btn-${size} ${style}`}
+      className={`btn-${variant} border-0 rounded text-center btn-${size} ${style}`}
     >
       {props.children}
     </button>
