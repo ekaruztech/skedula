@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Sidenav from "./sideNav";
 import { Container, Row, Col } from "reactstrap";
 import "./MainDashboard.scss";
-import Cry from "../assets/images/cry-todo-1.svg";
+import Undrawn from "../assets/images/undrawn.png";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import InputField from "../elements/InputField";
@@ -17,10 +18,8 @@ const SingleTodoPage = () => {
   return (
     <Container className="themed-container" fluid={true}>
       <Row>
-        <Col lg="3" sm="12">
-          <h1>SideBar</h1>
-        </Col>
-        <Col lg="8" sm="12" className="mt-3 mr-5">
+        <Sidenav />
+        <Col lg="8" sm="12" className="mt-3 ml-5 mr-5">
           <h3 className="mt-3 text-secondary">
             A trip to France.{" "}
             <small className="bg-secondary ml-5 text-white pending p-1 pr-3">
@@ -32,7 +31,7 @@ const SingleTodoPage = () => {
             A quick brown fox jumbs over the lazy dog
           </h6>
           <div className="ml-5 text-center">
-            <img src={Cry} alt="cry" className=" mr-0 cry-img" />
+            <img src={Undrawn} alt="cry" className=" mr-0 cry-img" />
           </div>
           <h4 className=" text-secondary text-center">
             Your task list is empty
