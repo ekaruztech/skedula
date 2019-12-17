@@ -1,7 +1,8 @@
+import Sidenav from "./sideNav";
 import React, { useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "./MainDashboard.scss";
-//import Cry from "../assets/images/cry-todo-1.png";
+import Cry from "../assets/images/cry-todo-1.svg";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import InputField from "../elements/InputField";
@@ -16,11 +17,11 @@ function Dashboard() {
   return (
     <Container className="themed-container" fluid={true}>
       <Row>
-        <Col lg="4" sm="12">
-          <h1>SideBar</h1>
-        </Col>
-        <Col lg="6" sm="12" className="mt-3 mr-5">
-          <h2 className="mt-3 text-primary">Good Morning, John</h2>
+        <Sidenav />
+        <Col lg="8" sm="12" className="mt-5 ml-5  mr-5">
+          <h2 className="mt-3 text-primary">
+            Good Morning, <strong>John</strong>
+          </h2>
           <h5 className=" text-secondary">17th, December 2022. 21:34</h5>
           <div className="ml-5 text-center">
             <img src={Cry} alt="cry" className=" mr-0 cry-img" />
