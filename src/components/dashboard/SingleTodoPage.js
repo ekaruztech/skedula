@@ -1,4 +1,3 @@
-import Sidenav from "./sideNav";
 import React, { useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "./MainDashboard.scss";
@@ -9,7 +8,7 @@ import InputField from "../elements/InputField";
 import Form from "react-bootstrap/Form";
 import { FormGroup, Input } from "reactstrap";
 
-function Dashboard() {
+const SingleTodoPage = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -17,39 +16,46 @@ function Dashboard() {
   return (
     <Container className="themed-container" fluid={true}>
       <Row>
-        <Sidenav />
+        <Col lg="3" sm="12">
+          <h1>SideBar</h1>
+        </Col>
         <Col lg="8" sm="12" className="mt-3 mr-5">
-          <h2 className="mt-3 text-primary">Good Morning, John</h2>
-          <h5 className=" text-secondary">17th, December 2022. 21:34</h5>
+          <h3 className="mt-3 text-secondary">
+            A trip to France.{" "}
+            <small className="bg-secondary ml-5 text-white pending p-1 pr-3">
+              {" "}
+              pending
+            </small>
+          </h3>
+          <h6 className=" text-secondary">
+            A quick brown fox jumbs over the lazy dog
+          </h6>
           <div className="ml-5 text-center">
             <img src={Cry} alt="cry" className=" mr-0 cry-img" />
           </div>
           <h4 className=" text-secondary text-center">
-            You do not have a todo yet
+            Your task list is empty
           </h4>
           <div className="text-center mt-3">
             <>
               <Button variant="primary" onClick={handleShow}>
-                Create Todo
+                Add Task
               </Button>
 
               <Modal show={show} onHide={handleClose}>
                 <Modal.Title className="ml-3 mt-3">
-                  Create new <strong className="modal-title1">Todo</strong>
+                  Add new <strong className="modal-title1">Task</strong>
                 </Modal.Title>
                 <Modal.Body>
-                  <InputField placeholder="Todo title" />
-                  <Input
-                    type="textarea"
-                    name="text"
-                    id="exampleText"
-                    placeholder="Add Todo description"
-                    row="5"
-                  />
+                  <InputField placeholder="Task title" />
                 </Modal.Body>
                 <Modal.Footer className="border-0">
-                  <Button variant="primary" onClick={handleClose}>
-                    Create todo
+                  <Button
+                    variant="primary"
+                    className="btn btn-md"
+                    onClick={handleClose}
+                  >
+                    Add
                   </Button>
                 </Modal.Footer>
               </Modal>
@@ -59,6 +65,6 @@ function Dashboard() {
       </Row>
     </Container>
   );
-}
+};
 
-export default Dashboard;
+export default SingleTodoPage;
