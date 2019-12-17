@@ -18,7 +18,7 @@ function Dashboard() {
     <Container className="themed-container" fluid={true}>
       <Row>
         <Sidenav />
-        <Col lg="8" sm="12" className="mt-5 ml-5  mr-5">
+        <Col lg="8" sm="12" className="mt-5 ml-4  mr-5">
           <h2 className="mt-3 text-primary">
             Good Morning, <strong>John</strong>
           </h2>
