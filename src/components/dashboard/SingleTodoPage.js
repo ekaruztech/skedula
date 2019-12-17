@@ -5,7 +5,7 @@ import "./MainDashboard.scss";
 import Undrawn from "../assets/images/undrawn.png";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import InputField from "../elements/InputField";
+import ModalInput from "../elements/ModalInput";
 import Form from "react-bootstrap/Form";
 
 import { FormGroup, Input } from "reactstrap";
@@ -47,7 +47,7 @@ const SingleTodoPage = () => {
                   Add new <strong className="modal-title1">Task</strong>
                 </Modal.Title>
                 <Modal.Body>
-                  <InputField placeholder="Task title" />
+                  <ModalInput placeholder="Task title" className="border" />
                 </Modal.Body>
                 <Modal.Footer className="border-0">
                   <Button
