@@ -16,10 +16,10 @@ function Dashboard() {
   return (
     <Container className="themed-container" fluid={true}>
       <Row>
-        <Col lg="4" sm="12">
+        <Col lg="3" sm="12">
           <h1>SideBar</h1>
         </Col>
-        <Col lg="6" sm="12" className="mt-3 mr-5">
+        <Col lg="8" sm="12" className="mt-3 mr-5">
           <h2 className="mt-3 text-primary">Good Morning, John</h2>
           <h5 className=" text-secondary">17th, December 2022. 21:34</h5>
           <div className="ml-5 text-center">
