@@ -42,6 +42,7 @@ function Dashboard() {
                 <Modal.Body>
                   <ModalInput placeholder="Todo title" />
                   <Input
+                    className="border"
                     type="textarea"
                     name="text"
                     id="exampleText"
