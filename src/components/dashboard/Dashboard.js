@@ -1,5 +1,5 @@
 import Sidenav from "./sideNav";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Moment from "react-moment";
 import { Container, Row, Col } from "reactstrap";
 import "./MainDashboard.scss";
@@ -15,10 +15,11 @@ function Dashboard() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const myDate = new Date();
+  const [date, setDate] = useState({});
 
   // call greeting function
   function callGreeting() {
+    const myDate = new Date();
     var hrs = myDate.getHours();
 
     var greet;
@@ -33,6 +34,13 @@ function Dashboard() {
     return greet;
   }
 
+  useEffect(() => {
+    setInterval(() => {
+      setDate(new Date());
+      callGreeting();
+    }, 1000);
+  }, []);
+
   return (
     <Container className="themed-container" fluid={true}>
       <Row>
@@ -42,7 +50,7 @@ function Dashboard() {
             {callGreeting()}, <strong>John</strong>
           </h2>
           <h5 className=" text-secondary">
-            <Moment format="Do, MMMM YYYY. h:mm A">{myDate}</Moment>
+            <Moment format="Do, MMMM YYYY. h:mm A">{date}</Moment>
           </h5>
           <div className="ml-5 text-center">
             <img src={Cry} alt="cry" className=" mr-0 cry-img" />
