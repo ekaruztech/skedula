@@ -1,5 +1,6 @@
 import Sidenav from "./sideNav";
 import React, { useState } from "react";
+import Moment from "react-moment";
 import { Container, Row, Col } from "reactstrap";
 import "./MainDashboard.scss";
 import Cry from "../assets/images/cry-todo-1.svg";
@@ -14,8 +15,10 @@ function Dashboard() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const myDate = new Date();
+
+  // call greeting function
   function callGreeting() {
-    var myDate = new Date();
     var hrs = myDate.getHours();
 
     var greet;
@@ -38,7 +41,9 @@ function Dashboard() {
           <h2 className="mt-3 text-primary">
             {callGreeting()}, <strong>John</strong>
           </h2>
-          <h5 className=" text-secondary">17th, December 2022. 21:34</h5>
+          <h5 className=" text-secondary">
+            <Moment format="Do, MMMM YYYY. h:mm ">{myDate}</Moment>
+          </h5>
           <div className="ml-5 text-center">
             <img src={Cry} alt="cry" className=" mr-0 cry-img" />
           </div>
