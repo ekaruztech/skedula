@@ -42,7 +42,7 @@ function Dashboard() {
             {callGreeting()}, <strong>John</strong>
           </h2>
           <h5 className=" text-secondary">
-            <Moment format="Do, MMMM YYYY. h:mm ">{myDate}</Moment>
+            <Moment format="Do, MMMM YYYY. h:mm A">{myDate}</Moment>
           </h5>
           <div className="ml-5 text-center">
             <img src={Cry} alt="cry" className=" mr-0 cry-img" />
