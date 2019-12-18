@@ -13,6 +13,7 @@ function Dashboard() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [value, setValue] = useState("");
 
   return (
     <Container className="themed-container" fluid={true}>
@@ -34,28 +35,29 @@ function Dashboard() {
               <Button variant="primary" onClick={handleShow}>
                 Create Todo
               </Button>
-
-              <Modal show={show} onHide={handleClose}>
-                <Modal.Title className="ml-3 mt-3">
-                  Create new <strong className="modal-title1">Todo</strong>
-                </Modal.Title>
-                <Modal.Body>
-                  <ModalInput placeholder="Todo title" />
-                  <Input
-                    className="border"
-                    type="textarea"
-                    name="text"
-                    id="exampleText"
-                    placeholder="Add Todo description"
-                    row="5"
-                  />
-                </Modal.Body>
-                <Modal.Footer className="border-0">
-                  <Button variant="primary" onClick={handleClose}>
-                    Create todo
-                  </Button>
-                </Modal.Footer>
-              </Modal>
+              <form>
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Title className="ml-3 mt-3">
+                    Create new <strong className="modal-title1">Todo</strong>
+                  </Modal.Title>
+                  <Modal.Body>
+                    <ModalInput placeholder="Todo title" />
+                    <Input
+                      className="border"
+                      type="textarea"
+                      name="text"
+                      id="exampleText"
+                      placeholder="Add Todo description"
+                      row="5"
+                    />
+                  </Modal.Body>
+                  <Modal.Footer className="border-0">
+                    <Button variant="primary" onClick={handleClose}>
+                      Create todo
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              </form>
             </>
           </div>
         </Col>
