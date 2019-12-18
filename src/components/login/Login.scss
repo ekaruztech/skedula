@@ -1,0 +1,62 @@
+$danger: #dc3545;
+
+.btn-animate {
+  transition: 600ms ease-in-out;
+}
+
+.btn-opacity {
+  opacity: .5;
+  cursor: progress;
+}
+
+.Error {
+  margin: 0px 0px 0px 0px !important;
+  transition: all 300ms ease-in;
+
+  .error-text {
+    font-size: 15px !important;
+    color: $danger;
+    height: 20px !important;
+    font-weight: 450;
+  }
+}
+
+.inputfield {
+  display: flex;
+  border: 1.3px solid #e0e2e5;
+  height: 40px;
+  width: 90%;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.inputfield:focus-within {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.inputfield-error {
+  border: 1.3px solid $danger;
+
+  .iconStyle {
+    border-right: 1.3px solid lighten($danger, 20)
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 0 0.2rem lighten($danger, 20);
+    border-color: $danger;
+  }
+}
+
+.input {
+  width: 80% !important;
+  height: 100%;
+  border: none;
+}
+
+.input:focus {
+  box-shadow: none !important;
+}

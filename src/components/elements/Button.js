@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Button = props => {
-  const [size] = useState(props.size);
-  const [variant] = useState(props.variant);
-  const [style] = useState(props.style);
   return (
     <button
-      className={`btn-${variant} border-0 rounded text-center btn-${size} ${style}`}
+      className={`btn-${props.color} border-0 rounded text-center btn-${props.size} ${props.style} ${props.className}`}
+      disabled={props.disabled}
     >
       {props.children}
     </button>

@@ -72,7 +72,7 @@ body {
 }
 .Collapse .down {
   width: 100%;
-  height: 35px;
+  height: 20px;
   color: #4786ff;
   border-radius: 4px;
   background-color: #ffffff;
@@ -102,7 +102,7 @@ body {
   margin-left: 5px;
 }
 .logout-container {
-  top: 90%;
+  top: 95%;
   display: flex;
   width: inherit !important;
   position: absolute;

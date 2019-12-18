@@ -70,6 +70,36 @@ function Sidenav() {
     //   title: "IPO plans",
     //   id: 8,
     //   current: false
+    // },
+    // {
+    //   title: "IPO budget",
+    //   id: 84,
+    //   current: false
+    // },
+    // {
+    //   title: "Whatever",
+    //   id: 81,
+    //   current: false
+    // },
+    // {
+    //   title: "Whatever",
+    //   id: 811,
+    //   current: false
+    // },
+    // {
+    //   title: "Whatever",
+    //   id: 821,
+    //   current: false
+    // },
+    // {
+    //   title: "Whatever",
+    //   id: 831,
+    //   current: false
+    // },
+    // {
+    //   title: "Whatever",
+    //   id: 861,
+    //   current: false
     // }
   ]);
   return (
