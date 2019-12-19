@@ -1,10 +1,13 @@
 import { combineReducers } from "redux";
-import errorReducer from "./errorReducer";
-import loginReducer from "./loginReducer";
+
+import form from "./form";
+import { login } from "./auth";
+import ui from "./ui";
 
 const reducers = combineReducers({
-  errors: errorReducer,
-  userInfo: loginReducer
+  auth: login,
+  form,
+  ui
 });
 
 export default reducers;

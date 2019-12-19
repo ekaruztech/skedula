@@ -14,6 +14,13 @@ const SingleTodoPage = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [task, setTask] = useState("");
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(task);
+  };
+
   return (
     <Container className="themed-container" fluid={true}>
       <Row>
@@ -41,21 +48,28 @@ const SingleTodoPage = () => {
               </Button>
 
               <Modal show={show} onHide={handleClose}>
-                <Modal.Title className="ml-3 mt-3">
-                  Add new <strong className="modal-title1">Task</strong>
-                </Modal.Title>
-                <Modal.Body>
-                  <ModalInput placeholder="Task title" />
-                </Modal.Body>
-                <Modal.Footer className="border-0">
-                  <Button
-                    variant="primary"
-                    className="btn btn-md"
-                    onClick={handleClose}
-                  >
-                    Add
-                  </Button>
-                </Modal.Footer>
+                <form onSubmit={handleSubmit}>
+                  <Modal.Title className="ml-3 mt-3">
+                    Add new <strong className="modal-title1">Task</strong>
+                  </Modal.Title>
+                  <Modal.Body>
+                    <ModalInput
+                      placeholder="Task title"
+                      value={task}
+                      onChange={event => setTask(event.target.value)}
+                    />
+                  </Modal.Body>
+                  <Modal.Footer className="border-0">
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      className="btn btn-md"
+                      onClick={handleClose}
+                    >
+                      Add
+                    </Button>
+                  </Modal.Footer>
+                </form>
               </Modal>
             </>
           </div>
