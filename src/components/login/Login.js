@@ -1,6 +1,7 @@
 import { validateForm, saveFormData } from "./../../state/actions/form/index";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { ReactComponent as Delimeter } from "../assets/images/delimeter.svg";
 import { Container, Row, Col, Alert } from "reactstrap";
 import Hero from "../elements/Hero";
@@ -13,7 +14,12 @@ import "./Login.scss";
 
 import { login } from "./../../state/actions/auth";
 
-const Login = ({ login, form, errors, save, validate }) => {
+const Login = ({ login, form, errors, save, validate, history, auth }) => {
+  useEffect(() => {
+    if (auth.isAuthenticated) {
+      history.push("/");
+    }
+  }, [auth.isAuthenticated, history]);
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -136,6 +142,10 @@ const Login = ({ login, form, errors, save, validate }) => {
   );
 };
 
+Login.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
 const mapDispatchToProps = dispatch => ({
   login: payload => dispatch(login(payload)),
   validate: payload => dispatch(validateForm(payload)),
@@ -147,7 +157,8 @@ const mapStateToProps = state => {
       email: state.ui.errors["email"],
       password: state.ui.errors["password"]
     },
-    form: state.form["login"]
+    form: state.form["login"],
+    auth: state.auth
   };
 };
 
