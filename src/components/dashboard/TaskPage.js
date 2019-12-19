@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import SideNav from "./sideNav";
 import { Container, Row, Col } from "reactstrap";
 import "./MainDashboard.scss";
-import Cry from "../assets/images/cry-todo-1.svg";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import ModalInput from "../elements/ModalInput";
@@ -79,7 +78,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> Organize a private jet
               </Label>
 
-              <i class="fas fa-times text-secondary  float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary  float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
           <div className="mt-2 shadow ">
@@ -88,7 +87,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> Get a tour guide
               </Label>
 
-              <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
           <div className="mt-2 shadow ">
@@ -97,7 +96,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> Book hotels
               </Label>
 
-              <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
           <div className="mt-2 shadow ">
@@ -106,7 +105,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> Get the money
               </Label>
 
-              <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
           <div className="mt-2 shadow ">
@@ -115,7 +114,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> Consult flight agency
               </Label>
 
-              <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
           <div className="mt-2 shadow ">
@@ -124,7 +123,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> miscellaneous task
               </Label>
 
-              <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
         </Col>
