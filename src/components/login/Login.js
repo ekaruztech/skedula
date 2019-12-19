@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { validateForm, saveFormData } from "./../../state/actions/form/index";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { ReactComponent as Delimeter } from "../assets/images/delimeter.svg";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Alert } from "reactstrap";
 import Hero from "../elements/Hero";
 import Elipse from "../elements/Elipse";
 import Logo from "../assets/images/Skedula.svg";
@@ -9,27 +11,50 @@ import InputField from "../elements/InputField";
 import Button from "../elements/Button";
 import { connect } from "react-redux";
 import "./Login.scss";
-import validateUser from "./../../state/actions/validateUser";
 
-const Login = props => {
-  const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
-  const [submit, setSubmit] = useState(false);
+import { login } from "./../../state/actions/auth";
 
+const Login = ({ login, form, errors, save, validate, history, auth }) => {
+  useEffect(() => {
+    if (auth.isAuthenticated) {
+      history.push("/");
+    }
+  }, [auth.isAuthenticated, history]);
   const handleSubmit = e => {
     e.preventDefault();
 
-    setSubmit(prev => true);
-
     const value = {
-      user,
-      password
+      data: {
+        email: form.values.email,
+        password: form.values.password
+      },
+      key: "login"
     };
-    props.login(value);
+    validate({
+      key: "login",
+      payload: {
+        data: value.data
+      },
+      onSuccess: "SAVE_FORM_DATA",
+      onError: "SET_UI_ERROR",
+      type: Object.keys(value.data)
+    });
+
+    login(value.data);
+  };
+
+  const handleChange = e => {
+    const value = e.target.value;
+    const name = e.target.name;
+    save({
+      type: name,
+      data: { [name]: value },
+      key: "login"
+    });
   };
   function Error(props) {
     return (
-      <div className="Error">
+      <div className={`Error ${props.className}`}>
         <p className="error-text">{props.text}</p>
       </div>
     );
@@ -49,57 +74,52 @@ const Login = props => {
           </p>
           <form onSubmit={handleSubmit}>
             <div className="form-group w-80">
+              {errors && errors.login && (
+                <Alert color="danger">{errors.login}</Alert>
+              )}
               <div className="input-group-prepend">
                 <InputField
-                  placeholder="Username or Email"
-                  value={user}
+                  placeholder="Email Address"
+                  value={form.values.email}
+                  name={"email"}
                   icon={<i className="fas fa-user"></i>}
-                  onChange={e => setUser(e.target.value)}
-                  error={
-                    props.errors.errors.user.failed ? "inputfield-error" : ""
-                  }
+                  type={"email"}
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  error={errors && errors.email && "inputfield-error"}
                 />
               </div>
-              {props.errors.errors.user.failed ? (
-                <Error text={props.errors.errors.user.message} />
-              ) : (
-                ""
-              )}
+              {errors && errors.email && <Error text={errors.email} />}
             </div>
             <div className="form-group w-80">
               <div className="input-group-prepend">
                 <InputField
                   type={"password"}
                   placeholder="Password"
-                  value={password}
+                  value={form.values.password}
+                  email={"password"}
+                  name={"password"}
                   icon={<i className="fas fa-lock"></i>}
-                  onChange={e => setPassword(e.target.value)}
-                  error={
-                    props.errors.errors.user.failed ? "inputfield-error" : ""
-                  }
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  error={errors && errors.password && "inputfield-error"}
                 />
               </div>
-              {props.errors.errors.password.failed ? (
-                <Error text={props.errors.errors.password.message} />
-              ) : (
-                ""
-              )}
+              {errors && errors.password && <Error text={errors.password} />}
             </div>
             <div className="row mt-4">
               <div className="col-md-6 mb-3">
                 <Button
                   color="primary"
                   size="sm"
-                  disabled={submit && props.errors.failed === false}
-                  className={
-                    submit && props.errors.failed === false
-                      ? "pt-2 pr-4 pb-2 pl-4 btn-animate btn-opacity"
-                      : "pt-2 pr-4 pb-2 pl-4 btn-animate"
-                  }
+                  // className={
+                  //   props.isLoading
+                  //     ? "pt-2 pr-4 pb-2 pl-4 btn-animate btn-opacity"
+                  //     : "pt-2 pr-4 pb-2 pl-4 btn-animate"
+                  // }
                 >
-                  {submit && props.errors.failed === false
-                    ? "Verifying..."
-                    : "Login"}
+                  {/* {props.isLoading ? "Verifying..." : "Login"} */}
+                  Login
                 </Button>
               </div>
               <p className="col-md-6 text-primary px-5 pwd">
@@ -122,15 +142,23 @@ const Login = props => {
   );
 };
 
+Login.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
 const mapDispatchToProps = dispatch => ({
-  login: payload => dispatch(validateUser(payload))
+  login: payload => dispatch(login(payload)),
+  validate: payload => dispatch(validateForm(payload)),
+  save: payload => dispatch(saveFormData(payload))
 });
 const mapStateToProps = state => {
-  const {
-    errors: { login }
-  } = state;
   return {
-    errors: login
+    errors: {
+      email: state.ui.errors["email"],
+      password: state.ui.errors["password"]
+    },
+    form: state.form["login"],
+    auth: state.auth
   };
 };
 

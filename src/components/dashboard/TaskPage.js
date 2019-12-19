@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import SideNav from "./sideNav";
 import { Container, Row, Col } from "reactstrap";
 import "./MainDashboard.scss";
-import Cry from "../assets/images/cry-todo-1.svg";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import ModalInput from "../elements/ModalInput";
@@ -13,6 +12,13 @@ const SingleTodoPage = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [task, setTask] = useState("");
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(task);
+  };
 
   return (
     <Container className="themed-container" fluid={true}>
@@ -41,21 +47,28 @@ const SingleTodoPage = () => {
               </Button>
 
               <Modal show={show} onHide={handleClose}>
-                <Modal.Title className="ml-3 mt-3">
-                  Add new <strong className="modal-title1">Task</strong>
-                </Modal.Title>
-                <Modal.Body>
-                  <ModalInput placeholder="Task title" />
-                </Modal.Body>
-                <Modal.Footer className="border-0">
-                  <Button
-                    variant="primary"
-                    className="btn btn-md"
-                    onClick={handleClose}
-                  >
-                    Add
-                  </Button>
-                </Modal.Footer>
+                <form onSubmit={handleSubmit}>
+                  <Modal.Title className="ml-3 mt-3">
+                    Add new <strong className="modal-title1">Task</strong>
+                  </Modal.Title>
+                  <Modal.Body>
+                    <ModalInput
+                      placeholder="Task title"
+                      value={task}
+                      onChange={event => setTask(event.target.value)}
+                    />
+                  </Modal.Body>
+                  <Modal.Footer className="border-0">
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      className="btn btn-md"
+                      onClick={handleClose}
+                    >
+                      Add
+                    </Button>
+                  </Modal.Footer>
+                </form>
               </Modal>
             </>
           </div>
@@ -65,7 +78,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> Organize a private jet
               </Label>
 
-              <i class="fas fa-times text-secondary  float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary  float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
           <div className="mt-2 shadow ">
@@ -74,7 +87,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> Get a tour guide
               </Label>
 
-              <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
           <div className="mt-2 shadow ">
@@ -83,7 +96,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> Book hotels
               </Label>
 
-              <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
           <div className="mt-2 shadow ">
@@ -92,7 +105,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> Get the money
               </Label>
 
-              <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
           <div className="mt-2 shadow ">
@@ -101,7 +114,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> Consult flight agency
               </Label>
 
-              <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
           <div className="mt-2 shadow ">
@@ -110,7 +123,7 @@ const SingleTodoPage = () => {
                 <Input type="checkbox" /> miscellaneous task
               </Label>
 
-              <i class="fas fa-times text-secondary float-right mr-3 mt-3"></i>
+              <i className="fas fa-times text-secondary float-right mr-3 mt-3"></i>
             </FormGroup>
           </div>
         </Col>

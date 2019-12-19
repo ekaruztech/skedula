@@ -15,11 +15,15 @@ function Dashboard() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
   const [date, setDate] = useState({});
 
   // call greeting function
-  function callGreeting() {
+  const callGreeting = () => {
     const myDate = new Date();
+
     var hrs = myDate.getHours();
 
     var greet;
@@ -32,7 +36,7 @@ function Dashboard() {
       greet = "Good Evening";
     }
     return greet;
-  }
+  };
 
   useEffect(() => {
     setInterval(() => {
@@ -40,6 +44,11 @@ function Dashboard() {
       callGreeting();
     }, 1000);
   }, []);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(title, description);
+  };
 
   return (
     <Container className="themed-container" fluid={true}>
@@ -65,25 +74,35 @@ function Dashboard() {
               </Button>
 
               <Modal show={show} onHide={handleClose}>
-                <Modal.Title className="ml-3 mt-3">
-                  Create new <strong className="modal-title1">Todo</strong>
-                </Modal.Title>
-                <Modal.Body>
-                  <ModalInput placeholder="Todo title" />
-                  <Input
-                    className="border"
-                    type="textarea"
-                    name="text"
-                    id="exampleText"
-                    placeholder="Add Todo description"
-                    row="5"
-                  />
-                </Modal.Body>
-                <Modal.Footer className="border-0">
-                  <Button variant="primary" onClick={handleClose}>
-                    Create todo
-                  </Button>
-                </Modal.Footer>
+                <form onSubmit={handleSubmit}>
+                  <Modal.Title className="ml-3 mt-3">
+                    Create new <strong className="modal-title1">Todo</strong>
+                  </Modal.Title>
+                  <Modal.Body>
+                    <ModalInput
+                      value={title}
+                      onChange={e => setTitle(e.target.value)}
+                      placeholder="Todo title"
+                    />
+                    <Input
+                      className="border"
+                      type="textarea"
+                      placeholder="Add Todo description"
+                      row="5"
+                      value={description}
+                      onChange={e => setDescription(e.target.value)}
+                    />
+                  </Modal.Body>
+                  <Modal.Footer className="border-0">
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      onClick={handleClose}
+                    >
+                      Create todo
+                    </Button>
+                  </Modal.Footer>
+                </form>
               </Modal>
             </>
           </div>
