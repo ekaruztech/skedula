@@ -2,6 +2,7 @@ const initialState = {
   user: "",
   password: ""
 };
+
 const loginReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "LOGIN_USER":

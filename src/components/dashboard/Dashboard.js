@@ -20,6 +20,7 @@ function Dashboard() {
   // call greeting function
   function callGreeting() {
     const myDate = new Date();
+
     var hrs = myDate.getHours();
 
     var greet;

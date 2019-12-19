@@ -13,8 +13,8 @@ function App() {
   return (
     <Router>
       <div>
-        <Route exact path="/" component={Login} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Dashboard} />
         <Route exact path="/todo" component={SingleTodoPage} />
         <Route exact path="/task" component={TaskPage} />
         <Route exact path="/register" component={Register} />
