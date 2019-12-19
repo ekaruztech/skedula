@@ -10,8 +10,8 @@ const Container = styled.div`
     height: 665px;
     width: 605px;
     position: absolute;
-    top: -10px;
-    right: -2px;
+    top: -20px;
+    right: -10px;
   }
 `;
 
