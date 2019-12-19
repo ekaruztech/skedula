@@ -1,0 +1,167 @@
+$primary: #4786ff;
+$secondary: #3f74e7;
+$fontFamily: "Montserrat",
+sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.Sidenav {
+  background: $primary;
+  color: #ffffff;
+  height: 100vh;
+  font-family: "Montserrat", sans-serif;
+
+}
+
+.logo--container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+
+  .logo {}
+}
+
+.links-container {
+  margin-top: 30px;
+  display: flex;
+  width: inherit !important;
+}
+
+.List {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+
+  .List-text {
+    font-size: 17px;
+    font-family: $fontFamily;
+  }
+
+  .List-child-one {
+    width: 80%;
+
+    .List-icon {
+      padding: 10px;
+      margin-right: 10px;
+
+    }
+  }
+
+  .List-child-two {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .List-icon {
+      padding: 10px;
+      margin-left: 5px;
+    }
+  }
+}
+
+.Dropdown {
+  width: 100%;
+}
+
+.Collapse {
+  width: 100%;
+  color: $primary;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  transition: 200ms ease;
+  cursor: pointer;
+  user-select: none;
+
+  .down {
+    width: 100%;
+    height: 20px;
+    color: $primary;
+    border-radius: 4px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-left: 7px;
+
+    .Collapse-text {
+      font-size: 14px;
+    }
+
+    .Collapse-child-one {
+      width: 80%;
+
+      .Collapse-icon {
+        padding: 10px;
+        margin-right: 10px;
+        font-size: 15px;
+      }
+    }
+
+    .Collapse-child-two {
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .Collapse-icon {
+        padding: 10px;
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.logout-container {
+  top: 95%;
+  display: flex;
+  width: inherit !important;
+  position: absolute;
+
+}
+
+.emptyTodo {
+  background: white;
+  color: $primary;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: $primary;
+  padding: 10px 10px 10px 20px;
+  flex-flow: column;
+
+  .empty-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+
+    .add-todo-side-nav {
+      background: $primary !important;
+      border: none;
+
+      &:hover {
+        background: $secondary;
+      }
+    }
+  }
+
+
+}

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import SideNav from "./sideNav";
 import { Container, Row, Col } from "reactstrap";
 import "./MainDashboard.scss";
-import Cry from "../assets/images/cry-todo-1.png";
+import Cry from "../assets/images/cry-todo-1.svg";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import InputField from "../elements/InputField";
+import ModalInput from "../elements/ModalInput";
 import Form from "react-bootstrap/Form";
 import { FormGroup, Input, Label } from "reactstrap";
 
@@ -16,13 +17,11 @@ const SingleTodoPage = () => {
   return (
     <Container className="themed-container" fluid={true}>
       <Row>
-        <Col lg="3" sm="12">
-          <h1>SideBar</h1>
-        </Col>
-        <Col lg="8" sm="12" className="mt-3 mr-5">
+        <SideNav />>
+        <Col lg="8" sm="12" className="mt-3 ml-5 mr-5">
           <h3 className="mt-3 text-secondary">
             A trip to France.{" "}
-            <small className="bg-primary ml-5 text-white pending p-1 pr-3">
+            <small className="bg-primary ml-5 text-white pending text-center p-1 pr-3">
               in progress
             </small>
           </h3>
@@ -31,14 +30,14 @@ const SingleTodoPage = () => {
           </h6>
           <div>
             <p className="mt-4">
-              <i class="far fa-clipboard fa-2x "></i>
+              <i className="far fa-clipboard fa-2x "></i>
               <span className="your-task text-secondary"> Your Tasks</span>
             </p>
           </div>
           <div className="text-right">
             <>
               <Button variant="primary" className="" onClick={handleShow}>
-                <i class="fas fa-plus"></i> Add Task
+                <i className="fas fa-plus"></i> Add Task
               </Button>
 
               <Modal show={show} onHide={handleClose}>
@@ -46,7 +45,7 @@ const SingleTodoPage = () => {
                   Add new <strong className="modal-title1">Task</strong>
                 </Modal.Title>
                 <Modal.Body>
-                  <InputField placeholder="Task title" />
+                  <ModalInput placeholder="Task title" />
                 </Modal.Body>
                 <Modal.Footer className="border-0">
                   <Button
