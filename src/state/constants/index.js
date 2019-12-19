@@ -3,6 +3,9 @@ export const LOGIN_USER = "LOGIN_USER";
 export const SET_ERRORS = "SET_ERRORS";
 export const VALIDATE_USER = "VALIDATE_USER";
 
+export const ADD_TODO = "ADD_TODO";
+export const ADD_TASK = "ADD_TASK";
+
 export const GET_USER = "GET_USER";
 export const GET_TODO = "GET_TODO";
 export const SET_TODO = "SET_TODO";
