@@ -1,5 +1,5 @@
-const middleware = ({ getState, dispatch }) => next => action => {
-  console.log("Action: ", action.type, action.payload);
+const logger = ({ getState, dispatch }) => next => action => {
+  console.log("ACTION: ", action.type, action.payload || action.meta);
   next(action);
 };
-export default middleware;
+export default logger;

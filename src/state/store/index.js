@@ -1,10 +1,21 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "../reducers";
-import log from "../middlewares/log";
-import validate from "../middlewares/validate";
-import verify from "../middlewares/verify";
+import middlewares from "../middlewares";
 
-const middlewares = [validate, verify, log];
+const persistState = (state, current) => {
+  const local = JSON.stringify({ ...current, state });
+  localStorage.setItem("sk_persisted", local);
+};
+
+const getPersistedState = () => {
+  let cached = {};
+  if (localStorage.sk_persisted) {
+    const item = JSON.parse(localStorage.getItem("sk_persisted"));
+    cached = item;
+  }
+  return cached;
+};
+
 const store = createStore(
   rootReducer,
   compose(
@@ -12,5 +23,12 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
+// persist state to localstorage;
+
+store.subscribe(() => {
+  const { auth } = store.getState();
+  const persistedState = getPersistedState();
+  persistState(auth, persistedState);
+});
 
 export default store;
